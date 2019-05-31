@@ -1,0 +1,20 @@
+.row{
+
+    background-color:rgb(246, 212, 169);
+    
+    text-align: center;
+
+
+    
+}
+
+
+body {
+background-color:pink;
+}
+
+.container{
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto
+}
