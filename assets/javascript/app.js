@@ -4,6 +4,7 @@ var intervalId;
 var correct;
 var wrong;
 var unanswered;
+var truearray = ["true",]
 
 function run() {
     //Asnwer below first line of code
