@@ -1,28 +1,42 @@
 // when the quiz is over (time up OR user submitted quiz), display total correct, incorrect, and unanswered
 var secondsRemaining = 04;
 var intervalId;
-var correct;
-var wrong;
+var wrongcount;
 var unanswered;
-var array = [ "0", "0", "0" ];
+var userAnswer =
+    $("input[name='q1']:checked").val();
+var correctAnswerCount = 0;
 
 
-$(document).ready(function() {
+
+
+
+$(document).ready(function () {
     // Here we use jQuery to select the header with "click-me" as its ID.
     // Notice I have the #click-me, click, and then the function
     // So $("#id|.class|element").on("action", function(){});
     // And so whenever it is clicked...
     var clickCount = 0
+    if (userAnswer === true) {
+    correctAnswerCount++;
+    $(".correct").html(correctAnswerCount);
+}
 
-    $('#click-me').on('click', function() {
-      console.log("i've been clicked")
-      clickCount++
+    $("#submit-btn").on("click", function (e) {
+        e.preventDefault();
+        var q1Val = $("input[name='q1']:checked").val();
+        alert(q1Val);
+    });
+
+    $('#click-me').on('click', function () {
+        console.log("i've been clicked")
+        clickCount++
     })
-  })
+})
 
 function run() {
     //Asnwer below first line of code
-    intervalId = setInterval(decrement, 1000);
+    intervalId = setInterval(decrement, 4000);
     //
 }
 
@@ -34,7 +48,7 @@ function decrement() {
 
 
     if (secondsRemaining === 0) {
-        
+
         clearInterval(intervalId)
         alert("Time Up!");
         // display corrects, wrongs and unanswered questions
